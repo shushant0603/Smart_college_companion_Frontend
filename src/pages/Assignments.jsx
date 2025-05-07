@@ -21,7 +21,7 @@ const Assignments = () => {
   const fetchAssignments = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/assignments', {
+      const response = await fetch('https://smart-college-companion-backend.onrender.com/api/assignments', {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await response.json();
@@ -38,7 +38,7 @@ const Assignments = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/assignments', {
+      const response = await fetch('https://smart-college-companion-backend.onrender.com/api/assignments', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ const Assignments = () => {
   const handleDelete = async (id) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5000/api/assignments/${id}`, {
+      const response = await fetch(`https://smart-college-companion-backend.onrender.com/api/assignments/${id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -90,7 +90,7 @@ const Assignments = () => {
   const toggleStatus = async (id) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5000/api/assignments/${id}/status`, {
+      const response = await fetch(`https://smart-college-companion-backend.onrender.com/api/assignments/${id}/status`, {
         method: 'PATCH',
         headers: { Authorization: `Bearer ${token}` },
       });

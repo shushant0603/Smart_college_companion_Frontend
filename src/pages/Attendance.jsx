@@ -18,7 +18,7 @@ const Attendance = () => {
   const fetchAttendance = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/attendance', {
+      const response = await fetch('https://smart-college-companion-backend.onrender.com/api/attendance', {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await response.json();
@@ -35,7 +35,7 @@ const Attendance = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/attendance', {
+      const response = await fetch('https://smart-college-companion-backend.onrender.com/api/attendance', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ const Attendance = () => {
   const handleDelete = async (id) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5000/api/attendance/${id}`, {
+      const response = await fetch(`https://smart-college-companion-backend.onrender.com/api/attendance/${id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -85,7 +85,7 @@ const Attendance = () => {
   const updateAttendance = async (id, attended) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5000/api/attendance/${id}/update`, {
+      const response = await fetch(`https://smart-college-companion-backend.onrender.com/api/attendance/${id}/update`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

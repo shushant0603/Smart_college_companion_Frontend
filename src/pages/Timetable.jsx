@@ -23,7 +23,7 @@ const Timetable = () => {
   const fetchTimetable = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/timetable', {
+      const response = await fetch('https://smart-college-companion-backend.onrender.com/api/timetable', {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await response.json();
@@ -40,7 +40,7 @@ const Timetable = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/timetable', {
+      const response = await fetch('https://smart-college-companion-backend.onrender.com/api/timetable', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -73,7 +73,7 @@ const Timetable = () => {
   const handleDelete = async (id) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5000/api/timetable/${id}`, {
+      const response = await fetch(`https://smart-college-companion-backend.onrender.com/api/timetable/${id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` },
       });

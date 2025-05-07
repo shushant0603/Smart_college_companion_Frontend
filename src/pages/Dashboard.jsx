@@ -18,19 +18,19 @@ const Dashboard = () => {
         const headers = { Authorization: `Bearer ${token}` };
 
         // Fetch assignments stats
-        const assignmentsRes = await fetch('http://localhost:5000/api/assignments', { headers });
+        const assignmentsRes = await fetch('https://smart-college-companion-backend.onrender.com/api/assignments', { headers });
         const assignments = await assignmentsRes.json();
         
         // Fetch attendance stats
-        const attendanceRes = await fetch('http://localhost:5000/api/attendance', { headers });
+        const attendanceRes = await fetch('https://smart-college-companion-backend.onrender.com/api/attendance', { headers });
         const attendance = await attendanceRes.json();
         
         // Fetch notes stats
-        const notesRes = await fetch('http://localhost:5000/api/notes', { headers });
+        const notesRes = await fetch('https://smart-college-companion-backend.onrender.com/api/notes', { headers });
         const notes = await notesRes.json();
         
         // Fetch upcoming events
-        const eventsRes = await fetch('http://localhost:5000/api/events/upcoming', { headers });
+        const eventsRes = await fetch('https://smart-college-companion-backend.onrender.com/api/events/upcoming', { headers });
         const events = await eventsRes.json();
 
         setStats({
