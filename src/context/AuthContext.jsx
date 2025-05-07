@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }) => {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.message);
+        throw new Error(data.message || 'Login failed. Please check your credentials.');
       }
 
       localStorage.setItem('token', data.token);
@@ -50,7 +50,12 @@ export const AuthProvider = ({ children }) => {
       toast.success('Login successful!');
       return true;
     } catch (error) {
-      toast.error(error.message);
+      if (error.name === 'TypeError' && error.message === 'Failed to fetch') {
+        toast.error('Network error. Please check your internet connection.');
+      } else {
+        toast.error(error.message || 'An error occurred during login. Please try again.');
+      }
+      console.error('Login error:', error);
       return false;
     }
   };
